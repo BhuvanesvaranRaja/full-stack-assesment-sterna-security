@@ -115,3 +115,28 @@
   gap: 12px;
   padding: 12px;
 }
+
+.data-table-add-wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.data-table-add-tooltip {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 10;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: #263740;
+  color: white;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.data-table-add-wrapper:hover .data-table-add-tooltip,
+.data-table-add-wrapper:focus-within .data-table-add-tooltip {
+  visibility: visible;
+}

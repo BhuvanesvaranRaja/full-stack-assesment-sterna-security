@@ -6,6 +6,7 @@ export default function LocationTable({
   query,
   onQueryChange,
   onAdd,
+  addTooltip,
   addDisabled = false,
   pagination = true,
   pageSize = 10,
@@ -38,8 +39,9 @@ export default function LocationTable({
         onRetry={onRetry}
         searchValue={query}
         onSearchChange={onQueryChange}
-        addActionLabel={onAdd ? tab.title : undefined}
+        addActionLabel={onAdd || addTooltip ? tab.title : undefined}
         onAdd={onAdd}
+        addTooltip={addTooltip}
         addDisabled={addDisabled}
         pagination={pagination}
         pageSize={pageSize}

@@ -47,6 +47,7 @@ export default function DataTable({
   searchPlaceholder = "Search",
   addActionLabel,
   onAdd,
+  addTooltip,
   addDisabled = false,
   pagination = true,
   pageSize = 10,
@@ -140,21 +141,26 @@ export default function DataTable({
 
   return (
     <>
-      {(title || searchable || (addActionLabel && onAdd)) && (
+      {(title || searchable || (addActionLabel && (onAdd || addTooltip))) && (
         <div className="data-table-toolbar">
           {title && <h2>{title}</h2>}
           <div className="data-table-actions">
-            {addActionLabel && onAdd && (
+            {addActionLabel && (onAdd || addTooltip) && (
+              <span className="data-table-add-wrapper">
               <Button
                 type="button"
                 variant="ghost"
+                aria-disabled={addTooltip ? true : undefined}
+                aria-label={addTooltip ? `${addActionLabel}: ${addTooltip}` : undefined}
                 className="data-table-add-button"
-                onClick={onAdd}
+                onClick={addTooltip ? undefined : onAdd}
                 disabled={addDisabled}
               >
                 <Plus size={15} strokeWidth={1.5} aria-hidden="true" />
                 {addActionLabel}
               </Button>
+              {addTooltip && <span className="data-table-add-tooltip" aria-hidden="true">{addTooltip}</span>}
+              </span>
             )}
             {searchable && (
               <label className="data-table-search">

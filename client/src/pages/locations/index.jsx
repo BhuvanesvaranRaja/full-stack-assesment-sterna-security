@@ -3,7 +3,6 @@ import { ChevronDown, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import AppLayout from "@/components/layout/AppLayout";
-import InfoDialog from "@/components/InfoDialog";
 import LocationList from "./components/LocationList";
 import LockMappings from "./components/LockMappings";
 import LocationTable from "./components/LocationTable";
@@ -29,7 +28,6 @@ export default function Locations() {
   const [tableQuery, setTableQuery] = useState("");
   const [activeTab, setActiveTab] = useState("locks");
   const [addingLocation, setAddingLocation] = useState(false);
-  const [addingMapping, setAddingMapping] = useState(false);
   const [mobileLocationPickerOpen, setMobileLocationPickerOpen] =
     useState(false);
   const [loading, setLoading] = useState(true);
@@ -197,7 +195,7 @@ export default function Locations() {
                 tab={tab}
                 query={tableQuery}
                 onQueryChange={setTableQuery}
-                onAdd={() => setAddingMapping(true)}
+                addTooltip="Not yet implemented"
               />
             )}
           </div>
@@ -233,20 +231,6 @@ export default function Locations() {
           />
         </DialogContent>
       </Dialog>
-      {addingMapping && (
-        <InfoDialog
-          title={`Add ${tab.title.toLowerCase()}`}
-          onClose={() => setAddingMapping(false)}
-        >
-          No{" "}
-          {activeTab === "locks" || activeTab === "groups"
-            ? "locks"
-            : activeTab === "gateways"
-              ? "gateways"
-              : "geofences"}{" "}
-          are available to map to this location yet.
-        </InfoDialog>
-      )}
     </AppLayout>
   );
 }
