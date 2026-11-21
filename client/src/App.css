@@ -1,0 +1,26 @@
+.spinner {
+  animation: spin 0.8s linear infinite;
+}
+
+.global-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100vw;
+  background: #eefbff;
+  color: #31b5d1;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
+}

@@ -1,0 +1,43 @@
+.primary-button,
+.outline-button {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 14px;
+  appearance: none;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 2px;
+  box-shadow: none;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease;
+}
+
+.primary-button {
+  background: #1abdfe;
+  color: white;
+  border: 1px solid #1abdfe;
+}
+
+.primary-button:hover:not(:disabled) {
+  background: #17b4f2;
+}
+
+.outline-button {
+  color: #42b8cb;
+  background: white;
+  border: 1px solid #b2d4d6;
+}
+
+.outline-button:hover:not(:disabled) {
+  background: #f4fcfd;
+  border-color: #89c7ce;
+}
